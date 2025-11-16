@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Objectif Professionnel</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: white;
+            border-radius: 30px;
+            padding: 50px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+            animation: slideIn 0.6s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 1.2em;
+        }
+        
+        .instruction-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 25px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            border-left: 6px solid #ff6b6b;
+        }
+        
+        .instruction-box h3 {
+            color: #2c3e50;
+            font-size: 1.4em;
+            margin-bottom: 10px;
+        }
+        
+        .instruction-box p {
+            color: #2c3e50;
+            line-height: 1.6;
+            font-size: 1.05em;
+        }
+        
+        .form-section {
+            background: linear-gradient(to bottom, #f8f9ff 0%, white 100%);
+            padding: 35px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            border: 3px solid #e0e7ff;
+        }
+        
+        .phrase-construct {
+            font-size: 1.3em;
+            line-height: 2.2;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .phrase-construct strong {
+            color: #667eea;
+            font-size: 1.1em;
+        }
+        
+        .input-group {
+            margin-bottom: 25px;
+        }
+        
+        .input-group label {
+            display: block;
+            color: #667eea;
+            font-weight: 700;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+        
+        .input-group input,
+        .input-group textarea,
+        .input-group select {
+            width: 100%;
+            padding: 15px 20px;
+            border: 3px solid #e0e7ff;
+            border-radius: 15px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.05em;
+            transition: all 0.3s;
+            background: white;
+        }
+        
+        .input-group input:focus,
+        .input-group textarea:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+        }
+        
+        .input-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .result-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            border-radius: 20px;
+            color: white;
+            margin-top: 30px;
+            min-height: 150px;
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .result-box.show {
+            display: block;
+        }
+        
+        .result-box h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .result-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            text-align: center;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            font-weight: 600;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.1em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            border: 3px solid #667eea;
+        }
+        
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .examples {
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+            padding: 25px;
+            border-radius: 20px;
+            margin-top: 30px;
+        }
+        
+        .examples h3 {
+            color: #2c3e50;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+        
+        .example-item {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            border-left: 4px solid #667eea;
+            font-style: italic;
+            color: #2c3e50;
+        }
+        
+        .tips {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .tip-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            border: 3px solid #e0e7ff;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .tip-card:hover {
+            transform: translateY(-5px);
+            border-color: #667eea;
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.2);
+        }
+        
+        .tip-icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .tip-card h4 {
+            color: #667eea;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+        
+        .tip-card p {
+            color: #666;
+            font-size: 0.95em;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>✨ Mon Objectif Professionnel ✨</h1>
+            <p>Définissez clairement votre projet avec le CAP AEPE</p>
+        </div>
+        
+        <div class="instruction-box">
+            <h3>🎯 Consigne</h3>
+            <p>Complétez les champs ci-dessous pour construire votre objectif professionnel. Soyez précis et authentique !</p>
+        </div>
+        
+        <div class="form-section">
+            <div class="phrase-construct">
+                <strong>Je recherche un poste de</strong> ... <strong>dans</strong> ... <strong>parce que</strong> ...
+            </div>
+            
+            <div class="input-group">
+                <label>🎓 Quel poste recherchez-vous ?</label>
+                <select id="poste" onchange="toggleAutrePoste()">
+                    <option value="">Sélectionnez un métier</option>
+                    <option value="Auxiliaire de crèche">Auxiliaire de crèche</option>
+                    <option value="ATSEM">ATSEM</option>
+                    <option value="Assistant(e) maternel(le)">Assistant(e) maternel(le)</option>
+                    <option value="Garde d'enfants à domicile">Garde d'enfants à domicile</option>
+                    <option value="Animateur petite enfance">Animateur petite enfance</option>
+                    <option value="Agent de crèche">Agent de crèche</option>
+                    <option value="Auxiliaire parentale">Auxiliaire parentale</option>
+                    <option value="autre">Autre (précisez)</option>
+                </select>
+                <input type="text" id="autrePoste" placeholder="Précisez le métier..." style="display: none; margin-top: 10px;">
+            </div>
+            
+            <div class="input-group">
+                <label>🏢 Dans quel type de structure ?</label>
+                <select id="structure" onchange="toggleAutreStructure()">
+                    <option value="">Sélectionnez une structure</option>
+                    <option value="une crèche collective">une crèche collective</option>
+                    <option value="une micro-crèche">une micro-crèche</option>
+                    <option value="une école maternelle">une école maternelle</option>
+                    <option value="une halte-garderie">une halte-garderie</option>
+                    <option value="à mon domicile">à mon domicile</option>
+                    <option value="au domicile des parents">au domicile des parents</option>
+                    <option value="un centre de loisirs">un centre de loisirs</option>
+                    <option value="une MAM (Maison d'Assistants Maternels)">une MAM</option>
+                    <option value="autre">Autre (précisez)</option>
+                </select>
+                <input type="text" id="autreStructure" placeholder="Précisez la structure..." style="display: none; margin-top: 10px;">
+            </div>
+            
+            <div class="input-group">
+                <label>💡 Pourquoi ? (Vos motivations)</label>
+                <textarea id="motivation" placeholder="Exprimez vos motivations : passion pour la petite enfance, expériences personnelles, valeurs, compétences que vous souhaitez mettre en œuvre..."></textarea>
+            </div>
+            
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="genererObjectif()">🚀 Générer mon objectif</button>
+                <button class="btn btn-secondary" onclick="reinitialiser()">🔄 Recommencer</button>
+            </div>
+        </div>
+        
+        <div class="result-box" id="resultBox">
+            <h3>✨ Votre objectif professionnel ✨</h3>
+            <div class="result-text" id="resultText"></div>
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="copierTexte()">📋 Copier</button>
+                <button class="btn btn-secondary" onclick="telechargerPDF()">📄 Télécharger en PDF</button>
+            </div>
+        </div>
+        
+        <div class="examples">
+            <h3>💡 Exemples inspirants</h3>
+            <div class="example-item">
+                "Je recherche un poste d'<strong>Auxiliaire de crèche</strong> dans <strong>une crèche collective</strong> parce que j'aime accompagner les enfants dans leur développement et créer un environnement bienveillant."
+            </div>
+            <div class="example-item">
+                "Je recherche un poste d'<strong>ATSEM</strong> dans <strong>une école maternelle</strong> parce que je souhaite participer à l'éveil éducatif des enfants et travailler en équipe avec les enseignants."
+            </div>
+            <div class="example-item">
+                "Je recherche un poste d'<strong>Assistant(e) maternel(le)</strong> <strong>à mon domicile</strong> parce que je veux offrir un accueil personnalisé et familial aux jeunes enfants."
+            </div>
+        </div>
+        
+        <div class="tips">
+            <div class="tip-card">
+                <div class="tip-icon">🎯</div>
+                <h4>Soyez précis</h4>
+                <p>Indiquez le poste exact que vous visez</p>
+            </div>
+            <div class="tip-card">
+                <div class="tip-icon">💖</div>
+                <h4>Soyez authentique</h4>
+                <p>Exprimez vos vraies motivations</p>
+            </div>
+            <div class="tip-card">
+                <div class="tip-icon">✨</div>
+                <h4>Valorisez-vous</h4>
+                <p>Mettez en avant vos atouts</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function toggleAutrePoste() {
+            const select = document.getElementById('poste');
+            const autreInput = document.getElementById('autrePoste');
+            
+            if (select.value === 'autre') {
+                autreInput.style.display = 'block';
+            } else {
+                autreInput.style.display = 'none';
+                autreInput.value = '';
+            }
+        }
+        
+        function toggleAutreStructure() {
+            const select = document.getElementById('structure');
+            const autreInput = document.getElementById('autreStructure');
+            
+            if (select.value === 'autre') {
+                autreInput.style.display = 'block';
+            } else {
+                autreInput.style.display = 'none';
+                autreInput.value = '';
+            }
+        }
+        
+        function genererObjectif() {
+            const selectPoste = document.getElementById('poste');
+            const autrePoste = document.getElementById('autrePoste').value.trim();
+            const selectStructure = document.getElementById('structure');
+            const autreStructure = document.getElementById('autreStructure').value.trim();
+            const motivation = document.getElementById('motivation').value.trim();
+            
+            let poste = selectPoste.value;
+            let structure = selectStructure.value;
+            
+            if (poste === 'autre') {
+                if (!autrePoste) {
+                    alert('⚠️ Veuillez préciser le métier que vous recherchez.');
+                    return;
+                }
+                poste = autrePoste;
+            }
+            
+            if (structure === 'autre') {
+                if (!autreStructure) {
+                    alert('⚠️ Veuillez préciser le type de structure.');
+                    return;
+                }
+                structure = autreStructure;
+            }
+            
+            if (!poste || !structure || !motivation) {
+                alert('⚠️ Veuillez remplir tous les champs avant de générer votre objectif.');
+                return;
+            }
+            
+            const objectif = `Je recherche un poste de <strong>${poste}</strong> dans <strong>${structure}</strong> parce que ${motivation}`;
+            
+            document.getElementById('resultText').innerHTML = objectif;
+            document.getElementById('resultBox').classList.add('show');
+            
+            // Scroll vers le résultat
+            document.getElementById('resultBox').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        
+        function reinitialiser() {
+            document.getElementById('poste').value = '';
+            document.getElementById('autrePoste').value = '';
+            document.getElementById('autrePoste').style.display = 'none';
+            document.getElementById('structure').value = '';
+            document.getElementById('autreStructure').value = '';
+            document.getElementById('autreStructure').style.display = 'none';
+            document.getElementById('motivation').value = '';
+            document.getElementById('resultBox').classList.remove('show');
+        }
+        
+        function copierTexte() {
+            const texte = document.getElementById('resultText').innerText;
+            
+            navigator.clipboard.writeText(texte).then(() => {
+                alert('✅ Votre objectif a été copié dans le presse-papiers !');
+            }).catch(() => {
+                alert('❌ Erreur lors de la copie. Veuillez copier manuellement.');
+            });
+        }
+        
+        function telechargerPDF() {
+            window.print();
+        }
+    </script>
+    
+    <style media="print">
+        body {
+            background: white;
+            padding: 20px;
+        }
+        
+        .instruction-box, .examples, .tips, .button-group, .form-section {
+            display: none;
+        }
+        
+        .container {
+            box-shadow: none;
+            padding: 30px;
+        }
+        
+        .result-box {
+            display: block !important;
+            background: white !important;
+            color: #2c3e50 !important;
+            border: 3px solid #667eea;
+        }
+        
+        .result-box h3 {
+            color: #667eea;
+        }
+        
+        .result-text {
+            background: #f8f9ff !important;
+            color: #2c3e50 !important;
+        }
+    </style>
+</body>
+</html>
